@@ -1,0 +1,6 @@
+FUNSD: Form Understanding in
+Noisy Scanned Documents
+A dataset for Text Detection, Optical Character Recognition, Spatial Layout Analysis and Form Understanding.
+
+G. Jaume, H. K. Ekenel, J. Thiran "FUNSD: A Dataset for Form Understanding in Noisy Scanned Documents," 2019
+
