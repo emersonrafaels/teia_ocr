@@ -10,7 +10,11 @@ dir_images = "TESTS/IMAGES/training_data/images"
 types_accepted = (".png", ".jpg")
 
 # GETTING ALL IMAGES
-list_all_images = [str(file) for file in Path(dir_images).absolute().iterdir() if file.suffix in types_accepted]
+list_all_images = [
+    str(file)
+    for file in Path(dir_images).absolute().iterdir()
+    if file.suffix in types_accepted
+]
 
 # RANDOM AN IMAGE AMONG ALL
 image = choice(list_all_images)

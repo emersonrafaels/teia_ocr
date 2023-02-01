@@ -88,7 +88,6 @@ class ocr_functions:
         # 6 - TIPO DE FORMATO DO OUTPUT QUANDO UTILIZADO OCR COMPLETO
         self.OUTPUT_TYPE_IMAGE_DATA = str(type_output_image_data).upper()
 
-
     def tesseract_lang_availables(self):
         """
 
@@ -271,7 +270,10 @@ class ocr_functions:
 
         try:
             # VERIFICANDO SE A LINGUAGEM SELECIONADA, ESTÁ DISPONÍVEL
-            if self.lang_tesseract_default not in ocr_functions.tesseract_lang_availables(self):
+            if (
+                self.lang_tesseract_default
+                not in ocr_functions.tesseract_lang_availables(self)
+            ):
                 # COMO A LINGUAGEM SELECIONADA NÃO ESTÁ DISPONÍVEL
                 # UTILIZAREMOS A VERSÃO ENGLISH
                 self.lang_tesseract_default = "eng"
@@ -496,8 +498,9 @@ class ocr_functions:
         try:
             # REALIZANDO O OCR SOBRE A IMAGEM
             result_text = pytesseract.image_to_string(
-                image, lang=self.lang_tesseract_default,
-                config=self.config_tesseract_psm
+                image,
+                lang=self.lang_tesseract_default,
+                config=self.config_tesseract_psm,
             )
 
             validator = True
@@ -531,7 +534,9 @@ class ocr_functions:
 
         if self.return_type_ocr == self.list_types_return_ocr[0]:
             # O RETORNO SERÁ APENAS O TEXTUAL
-            validator, retorno_ocr = ocr_functions.execute_ocr_return_text(self, imagem_rgb)
+            validator, retorno_ocr = ocr_functions.execute_ocr_return_text(
+                self, imagem_rgb
+            )
 
         elif self.return_type_ocr == self.list_types_return_ocr[1]:
             # O RETORNO SERÁ UM DICT CONTENDO TODAS AS INFORMAÇÕES
@@ -545,7 +550,6 @@ class ocr_functions:
         return validator, retorno_ocr
 
     def orchestra_execute_ocr(self, image, view_image=False):
-
         # INICIANDO O validator
         validator = False
 
@@ -563,11 +567,7 @@ class ocr_functions:
 
         validator, retorno_ocr = ocr_functions.orchestra_type_ocr(self, img_ocr)
 
-        if (
-            validator
-            and self.return_type_ocr == "COMPLETO"
-            and self.view_ocr_complete
-        ):
+        if validator and self.return_type_ocr == "COMPLETO" and self.view_ocr_complete:
             ocr_functions.view_bounding_box_ocr_complete(
                 self, image=img_ocr, info_ocr=retorno_ocr
             )

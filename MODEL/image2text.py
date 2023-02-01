@@ -17,8 +17,9 @@ def execute_ocr(image_input: str, view_image: bool) -> str:
 
     """
 
-
     # INSTANCIANDO A CLASSE E OBTENDO O RESULTADO DO OCR
-    result_ocr = ocr_functions().orchestra_execute_ocr(image=image_input, view_image=view_image)
+    result_ocr = ocr_functions().orchestra_execute_ocr(
+        image=image_input, view_image=view_image
+    )
 
     return result_ocr
