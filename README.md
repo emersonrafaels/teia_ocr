@@ -22,7 +22,7 @@
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/emersonrafaels/teia_ocr/stargazers">git co
+   <a href="https://github.com/emersonrafaels/teia_ocr/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/emersonrafaels/teia_ocr?style=social">
   </a>
   <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
